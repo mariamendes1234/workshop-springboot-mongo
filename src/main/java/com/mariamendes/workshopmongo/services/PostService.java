@@ -22,6 +22,6 @@ public class PostService {
 
 	public List<Post> findByTitle(String text){
 		//http://localhost:8080/posts/search?test=bom%20dia (codificado)
-		return repo.findByTitleContainingIgnoreCase(text);
+		return repo.findByTitle(text);
 	}
 }
