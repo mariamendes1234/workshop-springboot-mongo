@@ -1,12 +1,15 @@
 package com.mariamendes.workshopmongo.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.mariamendes.workshopmongo.DTO.AuthorDTO;
+import com.mariamendes.workshopmongo.DTO.CommentDTO;
 
 @Document
 public class Post implements Serializable{
@@ -18,6 +21,8 @@ public class Post implements Serializable{
 	private String title;
 	private String body;
 	private AuthorDTO author;
+	
+	private List<CommentDTO> comments = new ArrayList<>();
 	
 	public Post() {
 		
@@ -96,6 +101,10 @@ public class Post implements Serializable{
 		} else if (!id.equals(other.id))
 			return false;
 		return true;
+	}
+
+	public List<CommentDTO> getComments() {
+		return comments;
 	}
 	
 	
